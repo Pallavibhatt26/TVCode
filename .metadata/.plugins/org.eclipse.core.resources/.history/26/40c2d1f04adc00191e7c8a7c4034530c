@@ -1,0 +1,36 @@
+package PagaLayer;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class framehandling {
+
+	public static void main(String [] args)
+	{
+		String path = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+		System.setProperty("webdriver.chrome.driver", path);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		String ws= "https://freecrm.com/";
+		driver.get(ws);
+		
+		////LOGIN///////////////
+		driver.findElement(By.xpath("/html/body/div[1]/header/div/nav/div[2]/div/div[2]/ul/a/span[2]")).click();
+		driver.findElement(By.xpath("//*[@name=\"email\"]")).sendKeys("pallavibhatt26@gmail.com");
+		driver.findElement(By.xpath("//*[@name=\"password\"]")).sendKeys("Pant@2019");
+		driver.findElement(By.xpath("//*[@id=\"ui\"]/div/div/form/div/div[3]")).click();
+		
+		///////framecheck?????
+		//driver.switchTo().frame(0);
+		driver.findElement(By.xpath("//*[@id=\"main-nav\"]/a[3]")).click();;
+		
+			}
+
+	
+}

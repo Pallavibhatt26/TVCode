@@ -1,0 +1,23 @@
+package PagaLayer;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class framehandling {
+
+	public static void main(String [] args)
+	{
+		String path = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+		System.setProperty("webdriver.chrome.driver", path);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		
+		String ws= "https://freecrm.com/";
+		driver.get(ws);
+		driver.findElement(By.xpath("/html/body/div[1]/header/div/nav/div[2]/div/div[2]/ul/a/span[2]")).click();
+			}
+
+	
+}

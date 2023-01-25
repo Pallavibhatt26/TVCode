@@ -1,0 +1,32 @@
+package PagaLayer;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class dynamicxpath {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+	// TODO Auto-generated method stub
+			String path = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+			System.setProperty("webdriver.chrome.driver", path);
+			WebDriver d = new ChromeDriver();
+			String url ="https://www.ebay.com";
+			d.get(url);
+
+			d.manage().window().maximize();
+			d.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			d.findElement(By.xpath("//input[@class='gh-tb ui-autocomplete-input\']")).sendKeys("beauty");
+			d.findElement(By.xpath("//input[@id='gh-btn']")).click();
+			Actions myA= new Actions(d);
+			myA.moveToElement(d.findElement(By.linkText("Health & Beauty")));
+			d.findElement(By.linkText("Skin Care"));
+			
+}
+}

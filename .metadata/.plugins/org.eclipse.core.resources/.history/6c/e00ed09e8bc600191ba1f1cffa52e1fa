@@ -1,0 +1,30 @@
+package PagaLayer;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class popUpHandler {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String path = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+		System.setProperty("webdriver.chrome.driver", path);
+		ChromeOptions chromeOpt= new ChromeOptions();
+		//chromeOpt.setBinary(binaryPath);
+		
+		String webSite = "https://mail.rediff.com/cgi-bin/login.cgi";
+		WebDriver driver = new ChromeDriver ();
+		driver.get(webSite);
+		 //driver.findElement(By.id("login1")).sendKeys("pallavibhatt26");;
+		//driver.findElement(By.name("passwd")).sendKeys("ihdewd");;
+		driver.findElement(By.name("proceed")).click();
+		
+		Alert goAlert = driver.switchTo().alert();
+		goAlert.dismiss();
+		
+	}
+
+}

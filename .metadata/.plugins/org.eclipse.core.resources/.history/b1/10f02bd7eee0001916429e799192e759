@@ -1,0 +1,31 @@
+package PagaLayer;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class importprop {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		String driverpath = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+		System.setProperty("webdriver.chrome.driver", driverpath);
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		driver.get("https://www.facebook.com/");
+		
+		
+		
+		Properties propfile= new Properties();
+		FileInputStream ip= new FileInputStream("C:\\Users\\LENOVO\\eclipse-workspace\\TestjavaApp001\\src\\PagaLayer\\config.properties");
+		propfile.load(ip);
+	}
+
+}

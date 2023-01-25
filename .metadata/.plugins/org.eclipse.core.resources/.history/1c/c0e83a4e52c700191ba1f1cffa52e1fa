@@ -1,0 +1,36 @@
+package PagaLayer;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class fileUpload {
+	public static void main(String[] args)
+	{
+	 String exe = "chromedriver.exe";
+		final String webSite = "https://html.com/input-type-file/";
+		String binaryPath = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+		String path = "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromeDriver.exe";
+		System.setProperty("webdriver.chrome.driver", path);
+		ChromeOptions chromeOpt= new ChromeOptions();
+		//chromeOpt.setBinary(binaryPath);
+		
+		
+		WebDriver driver = new ChromeDriver ();
+		driver.get(webSite);
+		//driver.manage ().timeouts ().implicitlyWait (10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+		//System.out.println(driver.getPageSource());
+		driver.findElement(By.className("desktop-logoContainer")).click();
+		driver.findElement(By.xpath("/html/body/div[@id='desktop-headerMount']/div/div/header[@id='desktop-header-cnt']/div[@class='desktop-bound']/div[@class='desktop-actions']/div[@class='desktop-user']/div[@class='desktop-userActions']/div[@class='desktop-userActionsContent']/div[2]/div[@class='desktop-getUserInLinks desktop-getInLinks']/a[@class='desktop-linkButton'][1]")).click();
+		driver.close();
+
+	
+		
+	}
+
+
+}

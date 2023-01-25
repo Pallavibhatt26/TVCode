@@ -1,0 +1,35 @@
+package PagaLayer;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class DragnDrop {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		String binaryPath = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+		System.setProperty("webdriver.chrome.driver", binaryPath);
+		
+		WebDriver d = new ChromeDriver();
+		d.manage().window().maximize();
+		d.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		String url ="https://jqueryui.com/draggable/";
+		
+		Actions a = new Actions(d);
+	
+		d.switchTo().frame("//*[@id=\"content\"]/iframe");
+		
+		a.clickAndHold(d.findElement(By.xpath("//*[@id=\"content\"]/iframe"))).moveToElement(d.findElement(By.xpath("//*[@id=\"content\"]/iframe")), 10, 20)
+		.release()
+		.build().perform();
+	
+	}
+
+}
