@@ -23,9 +23,10 @@ public class NewTest {
 				
 	@Test
 			public void GET4ForeignPlayers() throws JSONException {
-		
-					int counter=0;
-      			        
+				
+			int counter=0;
+      			JSONObject jsonObject = new JSONObject(jsonDataString);
+			JSONArray jsonArray = jsonObject.getJSONArray("player");
 			        for (int i = 0; i < jsonArray.length(); i++) {
 			            String country = jsonArray.getJSONObject(i).getString("country");
 			            if(!country.equalsIgnoreCase("India"))
@@ -40,9 +41,8 @@ public class NewTest {
 			@Test
 			public void GETWicketKeeper() throws JSONException {
 
-			    JSONObject jsonObject = new JSONObject(jsonDataString);
-			    List<String> list = new ArrayList<String>();
-			    JSONArray jsonArray = jsonObject.getJSONArray("player");
+			JSONObject jsonObject = new JSONObject(jsonDataString);
+			JSONArray jsonArray = jsonObject.getJSONArray("player");
 			    for (int i = 0; i < jsonArray.length(); i++) {
 			        String role = jsonArray.getJSONObject(i).getString("role");
 			        if(role.equalsIgnoreCase("Wicket-keeper"))
